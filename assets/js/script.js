@@ -1,4 +1,4 @@
-let phrases = ["Essaye plus tard",
+let phrases = ["Essaye plus tard", //Liste des réponses
   "Essaye encore",
   "Pas d'avis",
   "C'est ton destin",
@@ -19,18 +19,18 @@ let phrases = ["Essaye plus tard",
   "N'y compte pas",
   "Impossible" ];
 
-window.onload = function (){
-  let input = document.getElementById("bouton");
-  input.addEventListener("click", magicBall);
+window.onload = function (){ //QUand la page est chargée
+  let input = document.getElementById("bouton"); //DOM du bouton jouer
+  input.addEventListener("click", magicBall); //En cas de clic sur Jouer : executer magicBall();
   function magicBall() {
-    hasard = Math.floor(Math.random()*20);
-    reponse = document.createElement('p');
-    reponse.textContent = phrases[hasard];
-    if (input.after != null) {
+    hasard = Math.floor(Math.random()*20); //Nombre entre 0 et 20
+    reponse = document.createElement('p'); //Création de la balise réponse
+    reponse.textContent = phrases[hasard]; //On prend une phrase au hasard entre 0 et 20;
+    if (input.after != null) { //SI la réponse existe déjà, la supprimer
       input.nextSibling.remove();
-      input.after(reponse);
+      input.after(reponse); //Et en mettre une nouvelle.
     }else {
-      input.after(reponse);
+      input.after(reponse); //Si la réponse n'existe pas, alors l'insérer.
     }
   }
 }
